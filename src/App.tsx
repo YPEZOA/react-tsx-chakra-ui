@@ -1,12 +1,14 @@
 import { BrowserRouter } from 'react-router-dom'
 import './App.css'
-import Main from './components/Main/Main'
+import AppRouter from './routes/AppRouter'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Main />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </>
   )
 }
 
