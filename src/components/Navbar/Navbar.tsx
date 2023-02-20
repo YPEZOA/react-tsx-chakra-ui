@@ -23,7 +23,6 @@ export interface Link {
 const NavLink: React.FC<Link> = ({ path, text }) => {
   const { pathname } = useLocation()
   const pathMatched = path === pathname ? '#38B2AC' : 'inherit'
-
   return (
     <Link
       style={{
@@ -53,37 +52,48 @@ const Navbar: React.FC = () => {
       boxShadow="md"
       p={2}
       display="flex"
-      justifyContent={{ base: 'flex-end', md: 'space-between' }}
+      alignItems="center"
+      justifyContent={{ base: 'space-between' }}
     >
+      <Link href="/" ml={10} display="flex" alignItems={'center'}>
+        <Image src="assets/logo.png" w={8} alt="Logo ypezoadev" />
+      </Link>
       <Flex display={{ base: 'none', md: 'flex', sm: 'none' }} gap={3} alignItems="center">
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <Image borderRadius="full" alt="Home" pr={5} src="" />
-        </Link>
         <NavLink path="/about" text="Sobre mi" />
         <NavLink path="/projects" text="Proyectos" />
         <NavLink path="/contact" text="Contacto" />
       </Flex>
-      <IconButton
-        onClick={toggleColorMode}
-        aria-label="Switch mode"
-        colorScheme={useColorModeValue('blue', 'orange')}
-        icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
-      />
-      <Box display={{ base: 'initial', md: 'none' }}>
-        <Menu>
-          <MenuButton
-            ml={2}
-            as={IconButton}
-            aria-label="Links"
-            icon={<HamburgerIcon />}
-            variant={useColorModeValue('solid', 'outline')}
-          />
-          <MenuList>
-            <MenuItem>Sobre mi</MenuItem>
-            <MenuItem>Proyectos</MenuItem>
-            <MenuItem>Contacto</MenuItem>
-          </MenuList>
-        </Menu>
+      <Box alignSelf="right">
+        <IconButton
+          onClick={toggleColorMode}
+          aria-label="Switch mode"
+          colorScheme={useColorModeValue('purple', 'orange')}
+          variant="ghost"
+          borderRadius={25}
+          icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
+        />
+        <Box display={{ base: 'inline-block', md: 'none' }}>
+          <Menu>
+            <MenuButton
+              ml={2}
+              as={IconButton}
+              aria-label="Links"
+              icon={<HamburgerIcon />}
+              variant={useColorModeValue('solid', 'outline')}
+            />
+            <MenuList display="flex" flexDirection="column">
+              <RouterLink to="/about">
+                <MenuItem>Sobre mí</MenuItem>
+              </RouterLink>
+              <RouterLink to="/projects">
+                <MenuItem>Proyectos</MenuItem>
+              </RouterLink>
+              <RouterLink to="/contact">
+                <MenuItem>Contacto</MenuItem>
+              </RouterLink>
+            </MenuList>
+          </Menu>
+        </Box>
       </Box>
     </Box>
   )

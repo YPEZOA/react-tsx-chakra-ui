@@ -10,3 +10,5 @@ const Contact: React.FC = () => {
 }
 
 export default Contact
+
+Contact.displayName = 'Contact'
