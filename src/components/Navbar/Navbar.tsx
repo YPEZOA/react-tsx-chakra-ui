@@ -23,6 +23,7 @@ export interface Link {
 const NavLink: React.FC<Link> = ({ path, text }) => {
   const { pathname } = useLocation()
   const pathMatched = path === pathname ? '#38B2AC' : 'inherit'
+
   return (
     <Link
       style={{
@@ -55,7 +56,7 @@ const Navbar: React.FC = () => {
       alignItems="center"
       justifyContent={{ base: 'space-between' }}
     >
-      <Link href="/" ml={10} display="flex" alignItems={'center'}>
+      <Link href="/" marginLeft={{ base: 1, md: 10 }} display="flex" alignItems={'center'}>
         <Image src="assets/logo.png" w={8} alt="Logo ypezoadev" />
       </Link>
       <Flex display={{ base: 'none', md: 'flex', sm: 'none' }} gap={3} alignItems="center">

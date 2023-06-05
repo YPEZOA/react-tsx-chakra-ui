@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import AboutMe from '../pages/AboutMe/AboutMe'
 import Main from '../pages/Main/Main'
 import Navbar from '../components/Navbar/Navbar'
 import Projects from '../pages/Projects/Projects'
+import AboutMe from '../pages/AboutMe/AboutMe'
 import Contact from '../pages/Contact/Contact'
 
 const AppRouter = () => {

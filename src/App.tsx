@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
-import './App.css'
 import AppRouter from './routes/AppRouter'
+import './App.css'
 
 const App: React.FC = () => {
   return (
@@ -8,6 +8,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <AppRouter />
       </BrowserRouter>
+      <div></div>
     </>
   )
 }
